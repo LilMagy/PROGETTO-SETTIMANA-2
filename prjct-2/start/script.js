@@ -197,12 +197,18 @@ console.log(filtraPerDispo());
 
 /* --------------------------------------------------------------
 
-/* VERSIONE AVANZATA — renderProdotti(lista)
-   Funzione che, dato un array di prodotti, genera la griglia nel DOM.
-   Niente HTML hard-coded per i prodotti: tutto generato dal JavaScript.
+/* VERSIONE AVANZATA — renderProdotti(lista) //CARTELLA APPOSITA 
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+
+/* VERSIONE AVANZATA — Aggiungi al carrello
+   Quando si clicca il bottone "Aggiungi al carrello", incrementa il contatore
+   nell'header (Carrello (0) → Carrello (1) → ...).
+   Per i prodotti esauriti: bottone disabilitato e testo "Esaurito".
+   Suggerimento: usa una closure
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+// Closure: `conteggio` è privato, si può cambiare solo tramite aggiungi()
 
 const cartBtns = document.querySelectorAll(".btn-cart");
 let counter = 0;
@@ -223,25 +229,6 @@ bin.addEventListener("click", (event) => {
   console.log("Carrello svuotato");
   return counter;
 });
-
-/* VERSIONE AVANZATA — Aggiungi al carrello
-   Quando si clicca il bottone "Aggiungi al carrello", incrementa il contatore
-   nell'header (Carrello (0) → Carrello (1) → ...).
-   Per i prodotti esauriti: bottone disabilitato e testo "Esaurito".
-   Suggerimento: usa una closure come visto in aula
-*/
-
-/* SCRIVI QUI LA TUA RISPOSTA */
-
-/* VERSIONE AVANZATA — Aggiungi al carrello
-   Quando si clicca il bottone "Aggiungi al carrello", incrementa il contatore
-   nell'header (Carrello (0) → Carrello (1) → ...).
-   Per i prodotti esauriti: bottone disabilitato e testo "Esaurito".
-   Suggerimento: usa una closure
-*/
-
-// Closure: `conteggio` è privato, si può cambiare solo tramite aggiungi()
-
 /* VERSIONE AVANZATA — Ordinamento
    Menu a tendina con: Prezzo crescente, Prezzo decrescente, Rating.
    Suggerimento: per rendere più leggibile la select puoi usare optgroup
