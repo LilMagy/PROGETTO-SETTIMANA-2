@@ -127,7 +127,7 @@ function formattaPrezzo(obj) {
 
 for (let i = 0; i < prodotti.length; i++) {
   formattaPrezzo(prodotti[i]);
-  console.log(stelline(prodotti[i]));
+  console.log(stellineFast(prodotti[i]));
 }
 
 /* VERSIONE INTERMEDIA — stelline(rating)
@@ -135,8 +135,8 @@ for (let i = 0; i < prodotti.length; i++) {
    Esempio: rating 3 → "★★★☆☆"
    Esempio in console.log: Monitor: rating 3 → "★★★☆☆"
 */
-
-/* SCRIVI QUI LA TUA RISPOSTA */
+/* 
+---------------------------------FUNZIONE LENTA---------------------------------------------------------
 function stelline(obj) {
   let rating = [];
   for (let i = 0; i < obj.rating; i++) {
@@ -149,6 +149,14 @@ function stelline(obj) {
   return rating;
 }
 
+----------------------------------------------------------------------------------------------------------
+*/
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+function stellineFast(obj) {
+  let rating = obj.rating;
+  return "★".repeat(rating) + "☆".repeat(5 - rating);
+}
 /* VERSIONE INTERMEDIA — Filtro per categoria
    Funzione che riceve il parametro categoria e filtra l'array prodotti mostrando solo i prodotti della categoria ricevuta
 */
@@ -167,13 +175,11 @@ function filtraPerCategoria(categoria) {
   return filtrati;
 }
 
-console.log(filtraPerCategoria("Elettronica")); 
-
+console.log(filtraPerCategoria("Elettronica"));
 
 /* VERSIONE INTERMEDIA — Filtro disponibilità e rating
    Funzione che genera un array filtrato dall'array prodotti, mostrando soltanto i prodotti disponibili con rating >= 3
 */
-
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function filtraPerDispo() {
@@ -187,7 +193,7 @@ function filtraPerDispo() {
 
   return filtrati;
 }
-console.log(filtraPerDispo())
+console.log(filtraPerDispo());
 
 /* --------------------------------------------------------------
 
@@ -198,6 +204,26 @@ console.log(filtraPerDispo())
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const cartBtns = document.querySelectorAll(".btn-cart");
+let counter = 0;
+cartBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    counter++;
+    let cart = document.querySelector("#cartButton");
+    cart.textContent = `Carrello (${counter})`;
+    console.log(counter);
+  });
+});
+
+const bin = document.querySelector("#bin");
+bin.addEventListener("click", (event) => {
+  counter = 0;
+  let cart = document.querySelector("#cartButton");
+  cart.textContent = `Carrello (${counter})`;
+  console.log("Carrello svuotato");
+  return counter;
+});
+
 /* VERSIONE AVANZATA — Aggiungi al carrello
    Quando si clicca il bottone "Aggiungi al carrello", incrementa il contatore
    nell'header (Carrello (0) → Carrello (1) → ...).
@@ -206,6 +232,15 @@ console.log(filtraPerDispo())
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+/* VERSIONE AVANZATA — Aggiungi al carrello
+   Quando si clicca il bottone "Aggiungi al carrello", incrementa il contatore
+   nell'header (Carrello (0) → Carrello (1) → ...).
+   Per i prodotti esauriti: bottone disabilitato e testo "Esaurito".
+   Suggerimento: usa una closure
+*/
+
+// Closure: `conteggio` è privato, si può cambiare solo tramite aggiungi()
 
 /* VERSIONE AVANZATA — Ordinamento
    Menu a tendina con: Prezzo crescente, Prezzo decrescente, Rating.

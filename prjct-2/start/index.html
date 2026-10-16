@@ -17,7 +17,7 @@
     <header>
       <!-- Logo, barra di ricerca, link Account / Ordini / Carrello -->
       <div class="wrapper">
-        <label for="search"
+        <label for="searchBar"
           ><i id="amazonLogo" class="fa-brands fa-amazon"></i
         ></label>
         <input
@@ -31,6 +31,7 @@
         <a href="" id="account">Account</a>
         <a href="" id="ordini">Ordini</a>
         <button type="button" id="cartButton">Carrello (0)</button>
+        <button type="button" id="bin"><i class="fa-solid fa-trash"></i></button>
       </div>
     </header>
 
@@ -45,7 +46,7 @@
       <h2>Categorie</h2>
 <!-- 4 card categoria -->
       <div class="grid">
-        <article class="card category-card">
+        <article id="article-1" class="card category-card">
           <div class="placeholder placeholder--elettronica">Elettronica</div>
           <div class="category-card__body">
             <h3>Elettronica</h3>
